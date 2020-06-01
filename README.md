@@ -1,5 +1,5 @@
-ferrypicker
-===========
+ferrypick
+=========
 
 Apply patches from Fedora dist git to different components.
 
