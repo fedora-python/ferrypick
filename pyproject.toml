@@ -1,3 +1,14 @@
 [build-system]
 requires = ["setuptools>=41.0", "setuptools-scm", "wheel"]
 build-backend = "setuptools.build_meta"
+
+[tool.tox]
+legacy_tox_ini = """
+[tox]
+envlist = py38,py39
+isolated_build = True
+
+[testenv]
+deps = pytest >= 4
+commands = pytest tests
+"""
