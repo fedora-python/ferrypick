@@ -56,7 +56,7 @@ When you have resolved this problem, run "git am --continue".
 If you prefer to skip this patch, run "git am --skip" instead.
 To restore the original branch and stop patching, run "git am --abort".
 
-$ cat python36.spec.rej
+[python36 (f32-backport *%|AM 1/1)]$ cat python36.spec.rej
 diff a/python36.spec b/python36.spec	(rejected hunks)
 @@ -17,7 +17,7 @@ URL: https://www.python.org/
  #global prerel ...
