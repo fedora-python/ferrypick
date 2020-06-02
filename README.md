@@ -55,6 +55,27 @@ hint: Use 'git am --show-current-patch=diff' to see the failed patch
 When you have resolved this problem, run "git am --continue".
 If you prefer to skip this patch, run "git am --skip" instead.
 To restore the original branch and stop patching, run "git am --abort".
+
+$ cat python36.spec.rej
+diff a/python36.spec b/python36.spec	(rejected hunks)
+@@ -17,7 +17,7 @@ URL: https://www.python.org/
+ #global prerel ...
+ %global upstream_version %{general_version}%{?prerel}
+ Version: %{general_version}%{?prerel:~%{prerel}}
+-Release: 4%{?dist}
++Release: 5%{?dist}
+ License: Python
+ 
+ 
+@@ -1535,6 +1529,9 @@ CheckPython optimized
+ # ======================================================
+ 
+ %changelog
++* Thu May 28 2020 Victor Stinner <vstinner@python.org> - 3.6.10-5
++- Fix python3-config --configdir (rhbz#1772988).
++
+ * Wed May 06 2020 Miro Hrončok <mhroncok@redhat.com> - 3.6.10-4
+ - Rename from python36 to python3.6
 ```
 
 Enjoy.
