@@ -11,7 +11,7 @@ This simple tool does 3 steps:
 
 Usage:
 
-```shell
+```
 [python36 (f32 %)]$ git switch -c f32-backport
 Switched to a new branch 'f32-backport'
 
