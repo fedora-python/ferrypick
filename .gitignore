@@ -1,2 +1,4 @@
 *.whl
 *.egg-info
+__pycache__
+.tox/

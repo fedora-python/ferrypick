@@ -6,10 +6,10 @@ Subject: rpmlint: Small fixes
 
 ---
 
-diff --git a/python3.9.rpmlintrc b/python3.9.rpmlintrc
+diff --git a/python3.8.rpmlintrc b/python3.8.rpmlintrc
 index 013f1e9..b97e76f 100644
---- a/python3.9.rpmlintrc
-+++ b/python3.9.rpmlintrc
+--- a/python3.8.rpmlintrc
++++ b/python3.8.rpmlintrc
 @@ -4,7 +4,7 @@ addFilter(r'crypto-policy-non-compliance-openssl')
  
  

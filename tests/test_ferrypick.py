@@ -1,5 +1,7 @@
+import sys
 import pytest
 from pathlib import Path
+from unittest import mock
 
 import ferrypick
 
@@ -50,10 +52,24 @@ def test_rename_git_diff_random_occurrence():
     assert new == line
 
 
-def test_patch_real():
+def test_functional():
+    # only mock download() and apply_patch()
+
     link = f"{U}/rpms/python3.9/c/a0928446.patch"
-    original_name = "python3.9"
     current_name = "python3.8"
-    expected = Path(__file__).parent / "a0928446.patch"
-    with ferrypick.patch(link, original_name, current_name) as patch:
-        assert Path(patch).read_text() == expected.read_text()
+    download_content = (Path(__file__).parent / "a0928446.patch").read_bytes()
+    expected = (Path(__file__).parent / "a0928446_py38.patch").read_bytes()
+    argv = [sys.argv[0], link, current_name]
+    apply_content = None
+
+    def apply_patch(filename):
+        nonlocal apply_content
+        with open(filename, "rb") as fp:
+            apply_content = fp.read()
+
+    with mock.patch("sys.argv", argv), mock.patch.object(
+        ferrypick, "download", return_value=download_content
+    ), mock.patch.object(ferrypick, "apply_patch", apply_patch):
+        ferrypick.main()
+
+    assert apply_content == expected
