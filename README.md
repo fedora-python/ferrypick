@@ -79,3 +79,12 @@ diff a/python36.spec b/python36.spec	(rejected hunks)
 ```
 
 Enjoy.
+
+
+Beware of non-utf-8 patches
+---------------------------
+
+Pagure has a [bug with patches containing non-utf-8 content](https://pagure.io/pagure/issue/4901).
+Hence if a commit contains such characters,
+always generate the patch file locally (`git format-patch`) and use ferrypick with local patch file,
+until the problem is fixed.
