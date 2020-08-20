@@ -98,7 +98,7 @@ def get_patch_content(link):
 
 
 def apply_patch(filename):
-    cmd = f"git am --reject {filename}"
+    cmd = f"git am --committer-date-is-author-date --reject {filename}"
     print(f"$ {cmd}")
     exitcode = execute(cmd)
     if exitcode:
